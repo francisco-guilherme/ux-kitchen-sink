@@ -1,43 +1,25 @@
 {
   "name": "ux-kitchen-sink",
   "version": "1.0.0",
-  "description": "ux-kitchen-sink",
+  "main": "index.js",
+  "repository": "https://github.com/francisco-guilherme/ux-kitchen-sink",
+  "author": "Francisco Guilherme <francisco.guilherme@webdetails.pt>",
+  "license": "MIT",
   "scripts": {
-    "clean": "cleandir dist",
-    "html": "copy 'src/*.html' dist",
-    "images": "copy 'src/images/*.*' dist/images",
-    "scripts": "copy 'src/scripts/*.*' dist/scripts",
-    "sass": "npm run sass:main && npm run sass:ruby && npm run sass:saphire",
-    "sass:main": "node-sass src/styles/main.scss dist/styles/main.css",
-    "sass:ruby": "node-sass src/themes/ruby/main.scss dist/styles/ruby.css",
-    "sass:saphire": "node-sass src/themes/saphire/main.scss dist/styles/saphire.css",
-    "watch": "parallel watch:html watch:scripts watch:scss",
-    "watch:html": "nodemon -w src/*.html --exec npm run html",
-    "watch:scripts": "nodemon -w src/scripts --exec npm run scripts",
-    "watch:scss": "nodemon -w src/scss --exec npm run sass",
-    "dist": "npm run clean && npm run html && npm run images && npm run scripts && npm run sass",
-    "server": "npm run dist && browser-sync start -s dist -f dist",
-    "dev": "parallel server watch"
+    "start": "webpack-dev-server --hot --open"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hfigueira/ux-kitchen-sink.git"
+  "dependencies": {
+    "html-webpack-plugin": "^2.30.1",
+    "path": "^0.12.7",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hfigueira/ux-kitchen-sink/issues"
-  },
-  "homepage": "https://github.com/hfigueira/ux-kitchen-sink#readme",
   "devDependencies": {
-    "autoprefixer": "^7.1.5",
-    "browser-sync": "^2.18.13",
-    "clean-dir": "^1.0.3",
-    "copy": "^0.3.1",
-    "node-sass": "^4.5.3",
-    "nodemon": "^1.12.1",
-    "npm-parallel": "^2.0.1",
-    "postcss": "^6.0.13",
-    "postcss-cli": "^4.1.1"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
   }
 }
